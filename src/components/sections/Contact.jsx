@@ -1,20 +1,48 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Button from '../ui/Button.jsx';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const formRef = useRef();
   
-  const onSubmit = (data) => {
-    console.log(data);
-    // Here you would typically send the data to your backend or a service like EmailJS
-    alert('Thank you for your message! I will get back to you soon.');
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    setSubmitStatus({ success: false, message: '' });
+    
+    try {
+      // Replace these with your actual EmailJS service, template, and user IDs
+      const result = await emailjs.sendForm(
+        'service_ewk7b4d', 
+        'template_b9uknl1',
+        formRef.current,
+        'yQ-tQM07Gi7DWxUZr'
+      );
+      
+      console.log('Email sent successfully:', result.text);
+      setSubmitStatus({ 
+        success: true, 
+        message: 'Thank you for your message! I will get back to you soon.' 
+      });
+      reset(); // Clear form
+    } catch (error) {
+      console.error('Email send failed:', error);
+      setSubmitStatus({ 
+        success: false, 
+        message: 'Something went wrong. Please try again or contact me directly via email.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact">
+    <section id="contact" className="py-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -103,43 +131,59 @@ const Contact = () => {
           >
             <h3 className="text-2xl font-bold mb-6 text-primary">Send a Message</h3>
             
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {submitStatus.message && (
+              <div className={`p-4 mb-6 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-300' : 'bg-red-900/50 text-red-300'}`}>
+                {submitStatus.message}
+              </div>
+            )}
+            
+            <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label className="block mb-2 text-gray-300">Name</label>
                 <input
-                  {...register('name', { required: 'Name is required' })}
+                  {...register('user_name', { required: 'Name is required' })}
+                  name="user_name"
                   className="w-full p-3 bg-dark-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.name && <span className="text-red-500 text-sm">{errors.name.message}</span>}
+                {errors.user_name && <span className="text-red-500 text-sm">{errors.user_name.message}</span>}
               </div>
               
               <div>
                 <label className="block mb-2 text-gray-300">Email</label>
                 <input
                   type="email"
-                  {...register('email', { 
+                  {...register('user_email', { 
                     required: 'Email is required',
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Invalid email address'
                     }
                   })}
+                  name="user_email"
                   className="w-full p-3 bg-dark-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+                {errors.user_email && <span className="text-red-500 text-sm">{errors.user_email.message}</span>}
               </div>
               
               <div>
                 <label className="block mb-2 text-gray-300">Message</label>
                 <textarea
                   {...register('message', { required: 'Message is required' })}
+                  name="message"
                   rows={5}
                   className="w-full p-3 bg-dark-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 ></textarea>
                 {errors.message && <span className="text-red-500 text-sm">{errors.message.message}</span>}
               </div>
               
-              <Button type="submit" primary className="w-full">Send Message</Button>
+              <Button 
+                type="submit" 
+                primary 
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
             </form>
           </motion.div>
         </div>
