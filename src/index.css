@@ -1,13 +1,143 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Custom Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark text-light font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  section {
+    @apply py-16 md:py-24;
+  }
+  
+  a {
+    @apply transition-colors duration-300;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Custom Component Classes */
+@layer components {
+  .glass-panel {
+    @apply bg-dark-light bg-opacity-70 backdrop-blur-md rounded-xl shadow-glass border border-opacity-20 border-gray-700;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 md:px-8;
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-opacity-90;
+  }
+  
+  .btn-primary-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:bg-opacity-10;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-opacity-90;
+  }
+  
+  .btn-secondary-outline {
+    @apply border-2 border-secondary text-secondary hover:bg-secondary hover:bg-opacity-10;
+  }
+  
+  .section-title {
+    @apply text-4xl font-bold mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-gray-300 mb-12 max-w-2xl mx-auto;
+  }
+  
+  .section-divider {
+    @apply w-24 h-1 bg-primary mx-auto mb-8;
+  }
+  
+  .nav-link {
+    @apply transition-colors hover:text-primary;
+  }
+  
+  .nav-link-active {
+    @apply text-primary font-semibold;
+  }
+  
+  .social-icon {
+    @apply text-gray-300 hover:text-primary transition-colors text-xl;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary bg-opacity-70 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* Fixes and Utilities */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Fix for mobile tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
