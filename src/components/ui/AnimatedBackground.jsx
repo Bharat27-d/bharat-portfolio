@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// Either use ShapeVariants or add a disable comment if you want to keep it for later
+// eslint-disable-next-line no-unused-vars
 const ShapeVariants = {
   animate: {
     y: ["0%", "100%", "0%"],
