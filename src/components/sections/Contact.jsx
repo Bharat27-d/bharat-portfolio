@@ -58,71 +58,76 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:min-h-[500px]">
+          {/* Contact Information Column - Now vertically centered */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="flex flex-col justify-center h-full"
           >
-            <h3 className="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-center">
-                <div className="text-primary text-xl mr-4">
-                  <FaEnvelope />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold">Email</h4>
-                  <p className="text-gray-300">example@email.com</p>
-                </div>
-              </div>
+            <div className="bg-dark-light/30 p-8 rounded-lg backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-8 text-primary">Contact Information</h3>
               
-              <div className="flex items-center">
-                <div className="text-primary text-xl mr-4">
-                  <FaDiscord />
+              <div className="space-y-8">
+                <div className="flex items-center">
+                  <div className="text-primary text-2xl mr-4">
+                    <FaEnvelope />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold">Email</h4>
+                    <p className="text-gray-300">bharatmain27@gmail.com</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-lg font-semibold">Discord</h4>
-                  <p className="text-gray-300">bharat27</p>
-                </div>
-              </div>
-              
-              <div className="mt-8">
-                <h4 className="text-lg font-semibold mb-4">Find me on</h4>
-                <div className="flex space-x-4">
-                  <motion.a
-                    href="https://github.com/Bharat27-d"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -5, color: '#0ea5e9' }}
-                    className="text-gray-300 text-2xl"
-                  >
-                    <FaGithub />
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -5, color: '#0ea5e9' }}
-                    className="text-gray-300 text-2xl"
-                  >
-                    <FaLinkedin />
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -5, color: '#0ea5e9' }}
-                    className="text-gray-300 text-2xl"
-                  >
+                
+                <div className="flex items-center">
+                  <div className="text-primary text-2xl mr-4">
                     <FaDiscord />
-                  </motion.a>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold">Discord</h4>
+                    <p className="text-gray-300">bharat27</p>
+                  </div>
+                </div>
+                
+                <div className="mt-8">
+                  <h4 className="text-lg font-semibold mb-4">Find me on</h4>
+                  <div className="flex space-x-6">
+                    <motion.a
+                      href="https://github.com/Bharat27-d"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -5, color: '#0ea5e9' }}
+                      className="text-gray-300 text-2xl"
+                    >
+                      <FaGithub />
+                    </motion.a>
+                    <motion.a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -5, color: '#0ea5e9' }}
+                      className="text-gray-300 text-2xl"
+                    >
+                      <FaLinkedin />
+                    </motion.a>
+                    <motion.a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ y: -5, color: '#0ea5e9' }}
+                      className="text-gray-300 text-2xl"
+                    >
+                      <FaDiscord />
+                    </motion.a>
+                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
           
+          {/* Form Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
