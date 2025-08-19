@@ -68,7 +68,7 @@ const Contact = () => {
             className="flex flex-col justify-center h-full"
           >
             <div className="bg-dark-light/30 p-8 rounded-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-8 text-primary">Contact Information</h3>
+              <h3 className="text-2xl font-bold mb-8 text-primary">Contact Information : spandannigga </h3>
               
               <div className="space-y-8">
                 <div className="flex items-center">
