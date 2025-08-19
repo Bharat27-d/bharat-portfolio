@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaJs, FaFigma, FaDiscord } from 'react-icons/fa';
 import { SiAdobephotoshop, SiAdobeillustrator, SiTailwindcss } from 'react-icons/si';
 import SkillBar from '../ui/SkillBar.jsx';
+import resume from '../../assets/Bharat-Resume.pdf';
+
 
 const About = () => {
   const skills = [
@@ -83,7 +85,7 @@ const About = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="/resume.pdf" 
+                href={resume}
                 target="_blank"
                 className="px-6 py-3 bg-primary rounded-lg text-white font-medium shadow-lg shadow-primary/20"
               >

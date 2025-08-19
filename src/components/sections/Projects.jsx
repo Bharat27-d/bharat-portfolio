@@ -11,11 +11,11 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Modern E-commerce Website",
-      description: "A fully responsive e-commerce platform with shopping cart functionality and payment integration.",
-      image: "https://placehold.co/600x400/333/FFF?text=E-commerce+Website",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/",
+      title: "Convoy Control Team",
+      description: "A fully responsive web application for managing convoy operations.",
+      image: "https://i.postimg.cc/Ls2TPFBh/convoy-project.png",
+      tags: ["HTML", "CSS", "JS"],
+      // github: "https://github.com/",
       demo: "https://example.com",
       category: "web"
     },
@@ -23,9 +23,9 @@ const Projects = () => {
       id: 2,
       title: "Multi-purpose Discord Bot",
       description: "A feature-rich Discord bot with moderation, music, games, and utility commands.",
-      image: "https://placehold.co/600x400/333/FFF?text=Discord+Bot",
+      image: "https://i.postimg.cc/VvCGRBSN/realopsgroup.png",
       tags: ["Discord.js", "Node.js", "MongoDB"],
-      github: "https://github.com/",
+      // github: "https://github.com/",
       demo: null,
       category: "discord"
     },
@@ -43,10 +43,9 @@ const Projects = () => {
       id: 4,
       title: "Portfolio Website",
       description: "Clean and modern portfolio website for a professional photographer.",
-      image: "https://placehold.co/600x400/333/FFF?text=Portfolio+Website",
+      image: "https://i.postimg.cc/LsKW0WkM/Portfolio-project.png",
       tags: ["React", "TailwindCSS", "Framer Motion"],
-      github: "https://github.com/",
-      demo: "https://example.com",
+      demo: "https://bharat-portfolioo.netlify.app/",
       category: "web"
     },
     // {
