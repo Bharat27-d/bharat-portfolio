@@ -22,7 +22,7 @@ const VirtualCard = () => {
   const contactInfo = {
     name: 'Bharat',
     title: 'Full-Stack Developer',
-    phone: '+91 9876543210',
+    phone: '+91 8432004624',
     email: 'bharatmain27@gmail.com',
     location: 'Nagpur, India',
     website: 'https://bharat.dev',

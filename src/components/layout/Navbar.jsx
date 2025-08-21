@@ -130,7 +130,7 @@ const Navbar = () => {
           className="text-2xl font-bold"
         >
           <span className="text-primary">Bharat</span>
-          <span className="text-white">.dev</span>
+          <span className="text-white"></span>
         </motion.div>
 
         {/* Desktop Navigation */}
